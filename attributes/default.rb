@@ -69,3 +69,7 @@ default['sshd']['sshd_config'] = {
   'UsePAM' => 'yes',
   'ListenAddress' => '0.0.0.0'
 }
+
+override['unattended-upgrades']['send_email'] = true
+override['unattended-upgrades']['email_address'] = 'updates@madalynn.eu'
+
