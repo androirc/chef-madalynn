@@ -1,0 +1,25 @@
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: ubuntu-14.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[chef-vault]
+      - recipe[madalynn::users]
+    attributes: {
+      'dev_mode': true
+    }
+  - name: bouncer
+    run_list:
+      - recipe[chef-vault]
+      - recipe[madalynn::users]
+      - recipe[madalynn::sshd]
+    attributes: {
+      'dev_mode': true
+    }
