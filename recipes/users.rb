@@ -18,7 +18,8 @@ include_recipe 'user'
 user_account 'blinkseb' do
   ssh_keygen false
   password chef_vault_item("passwords", "blinkseb")["password"]
-  ssh_keys ['ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAjFWUgpv09Ru+qr/SlW9Pih2WxS6eyZjjRfU7GMqXB8KZIVhZ8w0uGUDJSDzJSfsaLmziLMNshMa6XKZVlY/gGueqK2T+s3XuYl28ByOFHnJ9RslwwlwuwINE5WhMyLCFiEpo36+oxnME97pmh9crDrhscxDqcHD13Y9MTmyQPt0DrE0Ux11VyyIRV0Af9biK7OzDE1DNDY/kkVJ3cs8zM9M878MOuCztlUZIVd8/lvfXeNn4QFAXWuNDkNagOXD0ePUk27f75J6/zFqwkFMabLSLdI8hXAoa+/AnZCK/7Wjsq+QGR0IlAoqE8eMR7KmKp2WU+2UHJakf9x6Cv6xKcQ== blinkseb@pc-salon']
+  ssh_keys ['ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAjFWUgpv09Ru+qr/SlW9Pih2WxS6eyZjjRfU7GMqXB8KZIVhZ8w0uGUDJSDzJSfsaLmziLMNshMa6XKZVlY/gGueqK2T+s3XuYl28ByOFHnJ9RslwwlwuwINE5WhMyLCFiEpo36+oxnME97pmh9crDrhscxDqcHD13Y9MTmyQPt0DrE0Ux11VyyIRV0Af9biK7OzDE1DNDY/kkVJ3cs8zM9M878MOuCztlUZIVd8/lvfXeNn4QFAXWuNDkNagOXD0ePUk27f75J6/zFqwkFMabLSLdI8hXAoa+/AnZCK/7Wjsq+QGR0IlAoqE8eMR7KmKp2WU+2UHJakf9x6Cv6xKcQ== blinkseb@pc-salon',
+            'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvqSolHloZf2xFors3HwC4PTAczuWk+V2OC0tVf0SqIdkx8HVT7WhoTT/KFWNkU4ASkKVXeDMrl7Xx5qjA+kWF6nk7elv6VGNUmA6C0xO/E/mvNSBRWCCTrChtkChSAeLG9jAI0jqp8ujw8posFwJPeskJx6jWLwfP5689lWMKn479oUgCqJ27XxOBDIID1kFmUF9laBmUnbRw1z+nEyHkXfFrdddZkb2rIC1jPBHBUdRq9FzEvj8qdOmeUnuRArW+YHUwsIQEYsYCT8ZRxvZXChFNcGZqtgPE+UBKOWO4n1cgBPjtRK9RZdoez+WJN2Vhdmq23ns6OEOtVp3EzDZx sebastien.brochet@cern.ch']
   notifies :reload, 'ohai[reload_passwd]', :immediately
 end
 
