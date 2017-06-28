@@ -15,8 +15,7 @@ end
 include_recipe 'user'
 
 # ruby-shadow gem is needed for passwords
-apt_package 'ruby-dev'
-gem_package 'ruby-shadow'
+apt_package 'ruby-shadow'
 
 # Create 'blinkseb' user
 user_account 'blinkseb' do
