@@ -23,11 +23,11 @@ def update_config
     action    :create
   end
 
-  service node['sshd']['service_name'] do
-    # Due to a bug in Chef, we need to manually set the provider to Upstart for Ubuntu 13.10 and 14.04
-    # This will probably be fixed in chef-client 11.14
-    provider Chef::Provider::Service::Upstart if node['platform'] == 'ubuntu' && node['platform_version'] >= '13.10'
-    supports status: true, restart: true, reload: true
-    subscribes :restart, "template[#{name}]"
-  end
+  #service node['sshd']['service_name'] do
+  #  # Due to a bug in Chef, we need to manually set the provider to Upstart for Ubuntu 13.10 and 14.04
+  #  # This will probably be fixed in chef-client 11.14
+  #  provider Chef::Provider::Service::Upstart if node['platform'] == 'ubuntu' && node['platform_version'] >= '13.10' && node['platform_version'] <= '14.04'
+  #  supports status: true, restart: true, reload: true
+  #  subscribes :restart, "template[#{name}]"
+  #end
 end
