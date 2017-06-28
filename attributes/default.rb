@@ -4,3 +4,5 @@ override['apt']['unattended-upgrades']['enable'] = true
 override['apt']['unattended-upgrades']['remove_unused_dependencies'] = true
 
 override['sshd']['sshd_config']['ListenAddress'] = '0.0.0.0'
+override['sshd']['sshd_config']['PermitRootLogin'] = 'without-password'
+override['sshd']['sshd_config']['PasswordAuthentication'] = 'no'
