@@ -6,6 +6,7 @@ provisioner:
 
 platforms:
   - name: ubuntu-14.04
+  - name: ubuntu-16.04
 
 suites:
   - name: default
@@ -19,8 +20,8 @@ suites:
   - name: bouncer
     run_list:
       - recipe[chef-vault]
-      - recipe[madalynn::users]
       - recipe[madalynn::update_chef_client]
+      - recipe[madalynn::users]
       - recipe[madalynn::sshd]
     attributes: {
       'dev_mode': true
