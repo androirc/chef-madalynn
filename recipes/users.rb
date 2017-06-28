@@ -14,6 +14,9 @@ end
 
 include_recipe 'user'
 
+# ruby-shadow gem is needed for passwords
+gem_package 'ruby-shadow'
+
 # Create 'blinkseb' user
 user_account 'blinkseb' do
   ssh_keygen false

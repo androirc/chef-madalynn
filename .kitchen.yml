@@ -11,6 +11,7 @@ suites:
   - name: default
     run_list:
       - recipe[chef-vault]
+      - recipe[madalynn::update_chef_client]
       - recipe[madalynn::users]
     attributes: {
       'dev_mode': true
@@ -19,6 +20,7 @@ suites:
     run_list:
       - recipe[chef-vault]
       - recipe[madalynn::users]
+      - recipe[madalynn::update_chef_client]
       - recipe[madalynn::sshd]
     attributes: {
       'dev_mode': true

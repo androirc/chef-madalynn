@@ -21,7 +21,7 @@
 default['madalynn']['bouncer_ip'] = '10.10.10.254'
 
 # Path to 'sshd_config' configuration file
-default['sshd']['config_file'] = case platform_family
+default['sshd']['config_file'] = case node['platform_family']
 when 'mac_os_x'
   '/etc/sshd_config'
 else
@@ -29,7 +29,7 @@ else
 end
 
 # OpenSSH service name
-default['sshd']['service_name'] = case platform_family
+default['sshd']['service_name'] = case node['platform_family']
 when 'debian'
   'ssh'
 else
@@ -70,6 +70,5 @@ default['sshd']['sshd_config'] = {
   'ListenAddress' => '0.0.0.0'
 }
 
-override['unattended-upgrades']['send_email'] = true
-override['unattended-upgrades']['email_address'] = 'updates@madalynn.eu'
-
+override['apt']['unattended-upgrades']['enable'] = true
+override['apt']['unattended-upgrades']['remove_unused_dependencies'] = true
