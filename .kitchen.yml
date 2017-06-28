@@ -14,6 +14,7 @@ suites:
       - recipe[chef-vault]
       - recipe[madalynn::update_chef_client]
       - recipe[madalynn::users]
+      - recipe[apt::unattended-upgrades]
     attributes: {
       'dev_mode': true
     }
@@ -23,6 +24,7 @@ suites:
       - recipe[madalynn::update_chef_client]
       - recipe[madalynn::users]
       - recipe[madalynn::sshd]
+      - recipe[apt::unattended-upgrades]
     attributes: {
       'dev_mode': true
     }
