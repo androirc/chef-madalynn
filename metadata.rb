@@ -4,7 +4,7 @@ maintainer_email 'blinkseb@madalynn.eu'
 license          'All rights reserved'
 description      'Installs/Configures madalynn'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.1.15'
+version          '0.2'
 
 depends 'apt'
 depends 'chef_client_updater'
