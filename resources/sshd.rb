@@ -8,7 +8,7 @@ class Chef::Resource
 end
 
 action :update do
-  sshd_config = generate_sshd_config(config)
+  sshd_config = generate_sshd_config(new_resource.config)
 
   # Check sshd_config
   execute 'check_sshd_config' do
@@ -16,12 +16,12 @@ action :update do
     action :nothing
   end
 
-  service service_name do
+  service new_resource.service_name do
     supports status: true, restart: true, reload: true
     action :nothing
   end
 
-  template config_filename do
+  template new_resource.config_filename do
     owner     'root'
     group     node['root_group']
     mode      0o644
