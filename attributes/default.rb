@@ -9,6 +9,7 @@ override['apt']['unattended_upgrades']['allowed_origins'] = [
   '${distro_id}:${distro_codename}-updates',
   'MariaDB:',
   'LP-PPA-formorer-icinga:${distro_codename}',
+  'LP-PPA-ondrej-php:${distro_codename}',
   'Node Source:'
 ]
 
