@@ -17,3 +17,14 @@ override['apt']['unattended_upgrades']['allowed_origins'] = [
 override['sshd']['sshd_config']['ListenAddress'] = '0.0.0.0'
 override['sshd']['sshd_config']['PermitRootLogin'] = 'without-password'
 override['sshd']['sshd_config']['PasswordAuthentication'] = 'no'
+
+# Configure logrotate to restart chef-client service instead of reload
+# because latter crash the service
+default['chef_client']['log_rotation']['postrotate'] =  case node['chef_client']['init_style']
+                                                        when 'systemd'
+                                                          'systemctl restart chef-client.service >/dev/null || :'
+                                                        when 'upstart'
+                                                          'initctl restart chef-client >/dev/null || :'
+                                                        else
+                                                          '/etc/init.d/chef-client restart >/dev/null || :'
+                                                        end
